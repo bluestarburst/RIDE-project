@@ -8,3 +8,6 @@ To see the contents of the sdsandbox repo run
 git submodule init
 git submodule update
 '''
+
+python=3.9
+outputs -> model file doesn't work with new tensorflow
