@@ -44,7 +44,7 @@ DONKEY_GYM = True
 DONKEY_SIM_PATH = "remote" 
 DONKEY_GYM_ENV_NAME = "donkey-generated-track-v0" 
 GYM_CONF = { "body_style" : "donkey", "body_rgb" : (128, 128, 128), "car_name" : "<name-of-car>", "font_size" : 100}
-SIM_HOST = "<IP Address>"              # when racing on virtual-race-league use host "trainmydonkey.com"
+SIM_HOST = "<IP Address>" 
 ```
 
 By default localhost on windows is not available to WSL, so you need to find your real IP address.
@@ -73,11 +73,21 @@ Be sure you are in the `donkey` conda environment!
 | Train | `cd cars/<name-of-car> && donkey train --tub ./data --model models/<name-of-model>.h5` |
 | Sim | `cd cars/<name-of-car> && python manage.py drive --model models/<name-of-model>.h5` |
 
+After running the drive command you can control the car by going to `http://localhost:8887/`.
 
 All information for the donkey car is in 
 - [Donkey Installation Docs](https://docs.donkeycar.com/guide/host_pc/setup_ubuntu/)
 - [Donkey Gym Docs](https://docs.donkeycar.com/guide/deep_learning/simulator/)
 
+
+
+# Next Steps
+
+- Build and install the donkeycar onto the Raspberry Pi
+- Use [ngrok](https://ngrok.com/) to expose the donkeycar API to the internet
+- Check that the donkeycar can be controlled from WebUI
+- Create custom Car Manager Controller (Middleware) to manage data from each car's API
+- Setup car position tracking via camera and NASA image-matching algorithm
 ---
 ---
 ---
