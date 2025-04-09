@@ -74,7 +74,9 @@ Be sure you are in the `donkey` conda environment!
 | Sim | `cd cars/<name-of-car> && python manage.py drive --model models/<name-of-model>.h5` |
 
 
-
+All information for the donkey car is in 
+- [Donkey Installation Docs](https://docs.donkeycar.com/guide/host_pc/setup_ubuntu/)
+- [Donkey Gym Docs](https://docs.donkeycar.com/guide/deep_learning/simulator/)
 
 ---
 ---
