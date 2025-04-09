@@ -824,3 +824,7 @@
 {"_index": 2823, "_session_id": "25-04-09_2", "_timestamp_ms": 1744218566842, "cam/image_array": "2823_cam_image_array_.jpg", "user/angle": -0.01587350027901785, "user/mode": "user", "user/throttle": 0.06349203927176339}
 {"_index": 2824, "_session_id": "25-04-09_2", "_timestamp_ms": 1744218566891, "cam/image_array": "2824_cam_image_array_.jpg", "user/angle": -0.01587350027901785, "user/mode": "user", "user/throttle": 0.06349203927176339}
 {"_index": 2825, "_session_id": "25-04-09_2", "_timestamp_ms": 1744218566942, "cam/image_array": "2825_cam_image_array_.jpg", "user/angle": -0.14285714285714282, "user/mode": "user", "user/throttle": 0.7301587785993303}
+{"_index": 2826, "_session_id": "25-04-09_2", "_timestamp_ms": 1744218755834, "cam/image_array": "2826_cam_image_array_.jpg", "user/angle": 0.12698364257812514, "user/mode": "user", "user/throttle": 0.507936532156808}
+{"_index": 2827, "_session_id": "25-04-09_2", "_timestamp_ms": 1744218755884, "cam/image_array": "2827_cam_image_array_.jpg", "user/angle": 0.12698364257812514, "user/mode": "user", "user/throttle": 0.507936532156808}
+{"_index": 2828, "_session_id": "25-04-09_2", "_timestamp_ms": 1744218755934, "cam/image_array": "2828_cam_image_array_.jpg", "user/angle": 0.12698364257812514, "user/mode": "user", "user/throttle": 0.507936532156808}
+{"_index": 2829, "_session_id": "25-04-09_2", "_timestamp_ms": 1744218755984, "cam/image_array": "2829_cam_image_array_.jpg", "user/angle": 0.3015869140625, "user/mode": "user", "user/throttle": 1.0}

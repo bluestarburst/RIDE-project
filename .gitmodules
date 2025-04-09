@@ -1,6 +1,3 @@
-[submodule "sdsandbox"]
-	path = sdsandbox
-	url = https://github.com/bluestarburst/sdsandbox.git
 [submodule "cpm_lab"]
 	path = cpm_lab
 	url = https://github.com/embedded-software-laboratory/cpm_lab.git
