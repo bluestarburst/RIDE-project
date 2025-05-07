@@ -38,6 +38,10 @@ done
 # Path to the RIDE project
 PROJECT_DIR="/home/icarus/school/RIDE-project"
 BRIDGE_DIR="${PROJECT_DIR}/donkeycar_bridge"
+LOGS_DIR="${BRIDGE_DIR}/logs"
+
+# Create logs directory if it doesn't exist
+mkdir -p "${LOGS_DIR}"
 
 # Make sure the Lab Control Center is running
 echo "Checking if Lab Control Center is running..."
@@ -59,21 +63,21 @@ else
     python "${BRIDGE_DIR}/src/parameter_config.py" ${VEHICLE_ID}
 fi
 
-# Start the Donkeycar Bridge
+# Start the Donkeycar Bridge with logging to file
 echo "Starting Donkeycar Bridge for vehicle ${VEHICLE_ID}..."
-python "${BRIDGE_DIR}/src/dds_bridge.py" ${VEHICLE_ID} &
+python "${BRIDGE_DIR}/src/dds_bridge.py" ${VEHICLE_ID} > "${LOGS_DIR}/bridge_${VEHICLE_ID}.log" 2>&1 &
 BRIDGE_PID=$!
 
 # Give the bridge time to initialize
 sleep 2
 
-# Start the appropriate controller
+# Start the appropriate controller with logging to file
 if [ "$CONTROLLER" = "figure-eight" ]; then
     echo "Starting Figure-Eight Controller for vehicle ${VEHICLE_ID}..."
-    python "${BRIDGE_DIR}/examples/figure_eight_controller.py" ${VEHICLE_ID} &
+    python "${BRIDGE_DIR}/examples/figure_eight_controller.py" ${VEHICLE_ID} > "${LOGS_DIR}/controller_${VEHICLE_ID}.log" 2>&1 &
 else
     echo "Starting Circle Controller for vehicle ${VEHICLE_ID}..."
-    python "${BRIDGE_DIR}/examples/circle_controller.py" ${VEHICLE_ID} &
+    python "${BRIDGE_DIR}/examples/circle_controller.py" ${VEHICLE_ID} > "${LOGS_DIR}/controller_${VEHICLE_ID}.log" 2>&1 &
 fi
 CONTROLLER_PID=$!
 

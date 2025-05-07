@@ -26,9 +26,12 @@ class DonkeycarVisualizer:
         # Initialize CPM components if not already initialized
         try:
             cpm.Logging.Instance().set_id("donkeycar_vis_" + str(vehicle_id))
+            # Set logging level to reduce verbosity - only log warnings and errors
+            cpm.Logging.Instance().set_min_level(cpm.LogLevel.Warn)
         except:
             cpm.init("donkeycar_vis_" + str(vehicle_id))
             cpm.Logging.Instance().set_id("donkeycar_vis_" + str(vehicle_id))
+            cpm.Logging.Instance().set_min_level(cpm.LogLevel.Warn)
         
         # Create writers for visualization data
         self.visual_writer = cpm.Writer("visualization_commands")
@@ -41,6 +44,10 @@ class DonkeycarVisualizer:
         # For throttling camera updates
         self.last_camera_update = 0
         self.camera_update_interval = 0.1  # 10 Hz max for camera feed
+        
+        # Tracking to avoid duplicate log messages
+        self.last_steering = None
+        self.last_throttle = None
         
         cpm.Logging.Instance().write(cpm.LogLevel.Info, 
                                    f"Donkeycar visualizer initialized for vehicle {vehicle_id}")

@@ -79,7 +79,38 @@ All information for the donkey car is in
 - [Donkey Installation Docs](https://docs.donkeycar.com/guide/host_pc/setup_ubuntu/)
 - [Donkey Gym Docs](https://docs.donkeycar.com/guide/deep_learning/simulator/)
 
+## Donkeycar Bridge for CPM Lab
 
+The Donkeycar Bridge integrates donkeycars with the CPM Lab environment, enabling advanced control and visualization:
+
+### Simulation Mode
+
+Run a simulated donkeycar with the CPM Lab:
+
+```bash
+cd donkeycar_bridge
+./launch.sh <vehicle_id> [car_path] [--figure-eight]
+```
+
+### Physical Car Network Bridge
+
+Connect to physical donkeycars over the network:
+
+```bash
+cd donkeycar_bridge
+./run_physical_car.py --ip <car_ip> --port 8887
+```
+
+Options:
+- `--vehicle-id`: The CPM Lab vehicle ID (default: 1)
+- `--car-name`: Name of pre-configured car in config
+- `--ip`: IP address of the donkeycar
+- `--port`: Port number (default: 8887)
+- `--protocol`: Communication protocol (http or mqtt)
+
+This allows physical donkeycars to be controlled from the CPM Lab environment and visualized in the Lab Control Center, with support for both HTTP and MQTT protocols.
+
+See the [Donkeycar Bridge README](./donkeycar_bridge/README.md) for complete documentation.
 
 # Next Steps
 
@@ -88,44 +119,10 @@ All information for the donkey car is in
 - Check that the donkeycar can be controlled from WebUI
 - Create custom Car Manager Controller (Middleware) to manage data from each car's API
 - Setup car position tracking via camera and NASA image-matching algorithm
+- Improve physical car networking with better position tracking
+- Implement multi-car coordination through the CPM Lab environment
+- Add support for custom neural network models running in CPM Lab
 ---
 ---
 ---
 
-
-# ~~Using sdsandbox 2025 (OLD)~~
-
-1. Install Unity 2020.3.48f1 (via Unity Hub)
-
-2. Create CONDA environment
-```bash
-conda create -n ride python=3.7
-```
-3. Install Tensorflow 1.15.5 (via pip) 
-```bash
-pip install tensorflow==1.15.5
-```
-4. Install other dependencies
-```bash
-cd sdsandbox
-pip install -r requirements.txt
-```
-5. Open the unity project via Unity Hub (sdsim)
-6. Open the scene (generated_road) in Assets/Scenes
-7. Run the scene and click "NN Control over Network"
-8. Run the prediction client
-```bash
-python predict_client.py --model=../outputs/mymodel.h5
-```
-(if running the on WSL)
-
-Get the IP address of the machine
-```bash
-ip route
-```
-
-The IP address to use is default via <IP Address>
-
-```bash
-python predict_client.py --model=../outputs/mymodel.h5 --host=<IP Address> --port=9091
-```

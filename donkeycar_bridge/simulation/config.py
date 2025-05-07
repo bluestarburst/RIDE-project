@@ -33,3 +33,20 @@ DONKEY_CONFIG = {
     'THROTTLE_STOPPED_PWM': 370,
     'THROTTLE_REVERSE_PWM': 220,
 }
+
+# Network communication settings
+NETWORK_ENABLED = False  # Set to True to enable network communication with physical cars
+DEFAULT_PORT = 8887  # Default port for donkeycar web controller
+PROTOCOL = "http"  # Protocol for communication with cars (http or mqtt)
+
+# Physical car network settings
+PHYSICAL_CARS = {
+    # Example: "car_name": {"ip": "192.168.1.100", "port": 8887}
+    "testcar": {"ip": "localhost", "port": 8887},
+    "testcar2": {"ip": "localhost", "port": 8887},
+}
+
+# MQTT settings (if using MQTT protocol)
+MQTT_BROKER = "localhost"
+MQTT_PORT = 1883
+MQTT_TOPIC_PREFIX = "donkey/"  # Topic format will be donkey/<car_name>/<command>
