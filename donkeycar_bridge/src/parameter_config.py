@@ -6,6 +6,7 @@ This module sets up parameter configurations for Donkeycar vehicles in the CPM L
 import os
 import sys
 import argparse
+import donkeycar as dk
 
 # Import CPM Python bindings
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -64,9 +65,11 @@ def load_car_config(car_path):
     Returns:
         dict: Configuration dictionary
     """
-    try:
-        sys.path.append(car_path)
-        import myconfig
+    try: # TODO FIX DK Config parsing
+        # sys.path.append(car_path)
+        # import myconfig path (car_path/myconfig.py)
+        myconfig_path = os.path.join(car_path, 'myconfig.py')
+        myconfig = dk.load_config(myconfig=myconfig_path)
         
         # Extract configuration values
         config = {}
